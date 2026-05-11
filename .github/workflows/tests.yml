@@ -6,6 +6,7 @@ on:
   pull_request:
     branches: [main, 'release/v*']
 
+
 jobs:
   e2e-test:
     name: Playwright E2E Tests
