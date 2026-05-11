@@ -15,6 +15,12 @@ export default defineConfig({
       include: /\.(?:js|jsx|tsx)$/,
       babelLoaderOptions(opts) {
         opts.plugins?.unshift('babel-plugin-react-compiler');
+          opts.plugins?.push('istanbul');
+            opts.plugins?.push([
+                '@canyonjs', {
+                ci: true
+                }
+            ]);
       }
     })
   ],
