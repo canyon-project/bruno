@@ -14,9 +14,9 @@ runs:
     - name: Run Playwright Tests (Ubuntu)
       if: inputs.os == 'ubuntu'
       shell: bash
-      run: ls packages/bruno-app/.canyon_output
+      run: ls packages/bruno-app
 
     - name: Run Playwright Tests
       if: inputs.os != 'ubuntu'
       shell: bash
-      run: ls packages/bruno-app/.canyon_output
+      run: ls packages/bruno-app
