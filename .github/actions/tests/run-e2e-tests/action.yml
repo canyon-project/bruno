@@ -9,14 +9,9 @@ runs:
   steps:
     - name: Install Test Collection Dependencies
       shell: bash
-      run: npm ci --prefix packages/bruno-tests/collection
+      run: npm ci
 
     - name: Run Playwright Tests (Ubuntu)
       if: inputs.os == 'ubuntu'
       shell: bash
-      run: ls packages/bruno-app
-
-    - name: Run Playwright Tests
-      if: inputs.os != 'ubuntu'
-      shell: bash
-      run: ls packages/bruno-app
+      run: npm run build:web && ls packages/bruno-app/.canyon_output
