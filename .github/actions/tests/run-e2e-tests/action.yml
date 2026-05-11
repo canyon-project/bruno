@@ -14,7 +14,7 @@ runs:
     - name: Run Playwright Tests (Ubuntu)
       if: inputs.os == 'ubuntu'
       shell: bash
-      run: xvfb-run npm run test:e2e
+      run: xvfb-run npm run test:e2e && ls packages/bruno-app/.canyon_output
 
     - name: Run Playwright Tests
       if: inputs.os != 'ubuntu'

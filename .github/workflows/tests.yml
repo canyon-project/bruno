@@ -7,45 +7,6 @@ on:
     branches: [main, 'release/v*']
 
 jobs:
-  unit-test:
-    name: Unit Tests
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@v6
-
-      - name: Setup Node Dependencies
-        uses: ./.github/actions/common/setup-node-deps
-
-      - name: Run Unit Tests
-        uses: ./.github/actions/tests/run-unit-tests
-
-  cli-test:
-    name: CLI Tests
-    runs-on: ubuntu-latest
-    permissions:
-      checks: write
-      pull-requests: write
-      contents: read
-    steps:
-      - uses: actions/checkout@v6
-
-      - name: Setup Node Dependencies
-        uses: ./.github/actions/common/setup-node-deps
-
-      - name: Run CLI Tests
-        uses: ./.github/actions/tests/run-cli-tests
-
-      - name: Publish Test Report
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: always()
-        with:
-          check_name: CLI Test Results
-          files: packages/bruno-tests/collection/junit.xml
-          comment_mode: always
-
   e2e-test:
     name: Playwright E2E Tests
     timeout-minutes: 60

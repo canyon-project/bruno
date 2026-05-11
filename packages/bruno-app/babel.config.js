@@ -5,5 +5,9 @@ module.exports = {
       runtime: 'automatic'
     }]
   ],
-  plugins: ['babel-plugin-styled-components']
+  plugins: ['babel-plugin-styled-components', 'istanbul', [
+    '@canyonjs', {
+      ci: true
+    }
+  ]]
 };
