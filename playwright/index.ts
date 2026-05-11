@@ -1,4 +1,5 @@
 import { test as baseTest, BrowserContext, ElectronApplication, Page, TestInfo } from '@playwright/test';
+import { createCoverageContextFixture } from '@canyonjs/playwright';
 import * as path from 'path';
 import * as os from 'os';
 import * as fs from 'fs';
@@ -94,7 +95,7 @@ export async function closeElectronApp(app: ElectronApplication) {
   }
 }
 
-export const test = baseTest.extend<
+const electronTest = baseTest.extend<
   {
     context: BrowserContext;
     page: Page;
@@ -352,4 +353,13 @@ export const test = baseTest.extend<
   }
 });
 
-export * from '@playwright/test';
+export const test = electronTest.extend({
+  context: createCoverageContextFixture({
+    outputDir: '.canyon_output'
+  })
+});
+
+export const expect = test.expect;
+
+export type { Page, Locator } from '@playwright/test';
+export { errors } from '@playwright/test';

@@ -9,7 +9,8 @@
     "preview": "rsbuild preview",
     "test": "jest",
     "storybook": "storybook dev -p 6006 --config-dir storybook",
-    "build-storybook": "storybook build --config-dir storybook"
+    "build-storybook": "storybook build --config-dir storybook",
+    "gen-coverage-report": "nyc report --reporter=@canyonjs/report --temp-dir=./.canyon_output"
   },
   "dependencies": {
     "@fontsource/inter": "^5.0.15",
@@ -102,6 +103,8 @@
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.22.0",
     "@canyonjs/babel-plugin": "^1.0.10",
+    "@canyonjs/playwright": "^0.0.2",
+    "@canyonjs/report": "^1.0.28",
     "@rsbuild/core": "^1.1.2",
     "@rsbuild/plugin-babel": "^1.0.3",
     "@rsbuild/plugin-node-polyfill": "1.2.0",
@@ -123,6 +126,7 @@
     "html-webpack-plugin": "^5.5.0",
     "jest-environment-jsdom": "^29.7.0",
     "mini-css-extract-plugin": "^2.4.5",
+    "nyc": "^18.0.0",
     "postcss": "8.4.47",
     "style-loader": "^3.3.1",
     "tailwindcss": "^3.4.1",
